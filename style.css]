@@ -1,101 +1,233 @@
-@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
-
-:root {
-  --line-border-fill: #3498db;
-  --line-border-empty: #383838;
-
-}
-
+/* Geral */
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  font-family: "Roboto";
 }
 
 body {
-  background-color: #f1f1f1;
-  font-family: 'Muli', sans-serif;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  overflow: hidden;
-  margin: 0;
+  flex-wrap: wrap;
 }
 
-.container {
+/* Apresentação do evento */
+#about-container {
+  flex: 1.4;
+  padding: 2rem 4rem;
+}
+
+#brand {
+  display: flex;
+  align-items: center;
+  font-size: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+#brand img {
+  height: 50px;
+  margin-right: 0.6rem;
+}
+
+#exclusive {
+  text-transform: uppercase;
+  color: #0075ff;
+  font-weight: bold;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+#about-container h2 {
+  font-size: 2.4rem;
+  max-width: 500px;
+  margin-bottom: 1rem;
+}
+
+#date {
+  text-transform: uppercase;
+  color: #aaa;
+  margin-bottom: 1rem;
+}
+
+#description {
+  max-width: 500px;
+  margin-bottom: 1rem;
+  line-height: 1.4rem;
+}
+
+#about-container h4 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+#users-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.user-card {
+  border: 2px solid #ccc;
+  padding: 1rem;
+  width: 180px;
   text-align: center;
 }
 
-.progress-container {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-  margin-bottom: 30px;
-  max-width: 100%;
-  width: 350px;
-}
-
-.progress-container::before {
-  content: '';
-  background-color: var(--line-border-empty);
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  height: 4px;
-  width: 100%;
-  z-index: -1;
-}
-
-.progress {
-  background-color: var(--line-border-fill);
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  height: 4px;
-  width: 0%;
-  z-index: -1;
-  transition: 0.4s ease;
-}
-
-.circle {
-  background-color: #f1f1f1;
-  color:#e2e2e2;
+.user-card img {
+  width: 120px;
   border-radius: 50%;
-  height: 30px;
-  width: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 3px solid var(--line-border-empty);
-  transition: 0.4s ease;
+  margin-bottom: 1rem;
 }
 
-.circle.active {
-  border-color: var(--line-border-fill);
+.user-card .user-name {
+  font-weight: bold;
+  margin-bottom: 0.6rem;
 }
 
-.btn {
-  background-color: var(--line-border-fill);
+.user-card .user-role {
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+/* Formulário */
+#form-container {
+  flex: 1;
+  background-image: url("../img/pattern.png");
+  background-size: cover;
   color: #fff;
-  border: 0;
-  border-radius: 6px;
+}
+
+#form-inner {
+  margin: 3rem;
+  padding: 3rem;
+  border: 2px solid #fff;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#form-inner h3 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+#form-inner p {
+  margin-bottom: 1rem;
+}
+
+#register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+#name-container {
+  display: flex;
+  gap: 0.5rem;
+}
+
+#register-form input {
+  padding: 0.8rem 0.6rem;
+  border: none;
+  border-radius: 3px;
+}
+
+#email {
+  min-width: 100%;
+}
+
+#register-form input[type="submit"] {
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+  font-size: 1.1rem;
+  font-weight: bold;
   cursor: pointer;
-  font-family: inherit;
-  padding: 8px 30px;
-  margin: 5px;
-  font-size: 14px;
+  transition: 0.4s;
 }
 
-.btn:active {
-  transform: scale(0.98);
+#register-form input[type="submit"]:hover {
+  background-color: #fff;
+  color: #0075ff;
 }
 
-.btn:focus {
-  outline: 0;
+#benefits {
+  text-align: left;
+  align-self: start;
 }
 
-.btn:disabled {
-  background-color: var(--line-border-empty);
-  cursor: not-allowed;
+#benefits h4 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+#benefits ul {
+  list-style-position: inside;
+}
+
+#benefits li {
+  margin-bottom: 0.5rem;
+}
+
+/* Responsivo */
+@media (max-width: 450px) {
+  body {
+    flex-direction: column;
+  }
+
+  #about-container {
+    padding: 2rem;
+    padding-bottom: 0;
+  }
+
+  #about-container h2 {
+    font-size: 3rem;
+  }
+
+  #exclusive,
+  #date {
+    font-size: 1.4rem;
+  }
+
+  #description {
+    font-size: 1.6rem;
+    line-height: 2.2rem;
+  }
+
+  #about-container h4 {
+    font-size: 2rem;
+  }
+
+  #users-container {
+    flex-direction: column;
+  }
+
+  .user-card {
+    width: 100%;
+    padding: 2rem;
+  }
+
+  .user-card img {
+    width: 180px;
+  }
+
+  .user-card .user-name {
+    font-size: 1.6rem;
+  }
+
+  .user-card .user-role {
+    font-size: 1.4rem;
+  }
+
+  #form-inner {
+    margin: 2rem;
+    padding: 2rem;
+  }
+
+  #register-form,
+  #name-container {
+    gap: 1rem;
+  }
 }
